@@ -1,6 +1,7 @@
 <html>
 	<head>
 		<title>Document</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/components/icon.min.css"/>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/components/table.min.css"/>
 		<meta charset="utf-8">
 	</head>
@@ -25,8 +26,8 @@
 					<tbody>
 						<tr v-for="d in data">
 							<td>{{ $index + 1 }}</td>
-							<td v-on:click="a(d.key)">{{ d.key }}</td>
-							<td v-on:click="b(d.value)">{{ d.value }}</td>
+							<td>{{ d.key }} <i class="info circle link icon" v-on:click="a('설비명')"></i></td>
+							<td>{{ d.value }} <i class="info circle link icon" v-on:click="b('구분')"></i></td>
 						</tr>
 					</tbody>
 				</table>
@@ -81,6 +82,9 @@
 						methods: {
 							a: function(key) {
 								return alert(key)
+							},
+							b: function(value) {
+								return alert(value)
 							}
 						}
 					}
@@ -90,9 +94,6 @@
 						template: '#temp',
 						data: function() { return mold },
 						methods: {
-							b: function(value) {
-								return alert(value)
-							}
 						}
 					}
 				}
